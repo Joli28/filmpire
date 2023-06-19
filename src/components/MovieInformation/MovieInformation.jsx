@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { axios } from 'axios';
 import genreIcons from '../../assets/genres';
 
+import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 import useStyles from './styles';
 import { useGetMovieQuery } from '../../services/TMDB';
 
@@ -13,6 +14,7 @@ const MovieInformation = () => {
   const { id } = useParams();
   const { data, isFetching, error } = useGetMovieQuery(id);
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   if (isFetching) {
     return (
@@ -60,8 +62,8 @@ const MovieInformation = () => {
           </Typography>
         </Grid>
         <Grid item className={classes.genresContainer}>
-          {data.genres.map((genre, i) => (
-            <Link key={genre.name} className={classes.links} to="/" onClick={() => { }} >
+          {data.genres.map((genre) => (
+            <Link key={genre.name} className={classes.links} to="/" onClick={() => dispatch(selectGenreOrCategory(genre.id))} >
               <img src={genreIcons[genre.name.toLowerCase()]} className={classes.genreImages} height={30} />
               <Typography color="textPrimary" variant='subtitle1'>
                 {genre.name}
