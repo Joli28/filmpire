@@ -42,22 +42,24 @@ export const tmdbApi = createApi({
         // Get User Specific Lists
         getRecommendations: builder.query({
             query: ({ movie_id, list }) => `/movie/${movie_id}/${list}?api_key=${tmdbApiKey}`,
-          }),
+        }),
+
+        // Get Actor
         getActorsDetails: builder.query({
             query: (id) => `person/${id}?api_key=${tmdbApiKey}`,
         }),
 
-         // Get Actor
-         getMoviesByActorId: builder.query({
+        /// Get Movies by Actor
+        getMoviesByActorId: builder.query({
             query: ({ id, page }) => `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmdbApiKey}`,
-          }),
+        }),
     }),
 });
 
 export const {
     useGetGenresQuery,
     useGetMoviesQuery,
-    useGetMovieQuery, 
+    useGetMovieQuery,
     useGetRecommendationsQuery,
     useGetActorsDetailsQuery,
     useGetMoviesByActorIdQuery,

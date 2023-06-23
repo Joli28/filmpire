@@ -8,7 +8,6 @@ const Profile = () => {
     const { user } = useSelector((state) => state.user);
 
     const favoriteMovies = [];
-    console.log(user);
 
     const logout = () => {
         localStorage.clear();
