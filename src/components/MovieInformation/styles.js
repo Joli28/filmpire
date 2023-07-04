@@ -15,26 +15,25 @@ export default makeStyles((theme) => ({
     boxShadow: '0.5em 1em 1em rgb(64, 64, 70)',
     width: '80%',
     [theme.breakpoints.down('md')]: {
-      margin: '0 auto',
+      margin: '0 auto !imporatant',
       width: '50%',
-      // height: '350px',
     },
     [theme.breakpoints.down('sm')]: {
-      margin: '0 auto',
+      margin: '0 auto !imporatant',
       width: '100%',
       height: '350px',
       marginBottom: '30px',
     },
   },
   genresContainer: {
-    margin: '10px 0 !important',
+    margin: '10px 0 !imaportant',
     display: 'flex',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
   },
   genreImage: {
     filter: theme.palette.mode === 'dark' && 'invert(1)',
-    width: '10px',
+    marginRight: '10px',
   },
   links: {
     display: 'flex',
@@ -52,7 +51,7 @@ export default makeStyles((theme) => ({
     objectFit: 'cover',
     borderRadius: '10px',
   },
-  buttonsContainer: {
+  buttonContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
@@ -62,8 +61,8 @@ export default makeStyles((theme) => ({
   },
   modal: {
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   video: {
     width: '50%',

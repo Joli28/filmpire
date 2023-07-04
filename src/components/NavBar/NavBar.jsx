@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { ColorModeContext } from '../../utils/ToggleColorMode';
 import useStyles from './styles';
 import { Search, Sidebar } from '../index';
 import { setUser } from '../../features/auth';
@@ -17,6 +18,7 @@ function Navbar() {
     const dispatch = useDispatch();
     const { isAuthenticated, user } = useSelector((state) => state.user);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const colorMode = useContext(ColorModeContext);
 
     const token = localStorage.getItem('request_token');
     const sessionIdFromLocalStorage = localStorage.getItem('session_id');
@@ -56,6 +58,7 @@ function Navbar() {
                     <IconButton
                         color="inherit"
                         sx={{ ml: 1 }}
+                        onClick={colorMode.toggleColorMode}
                     >
                         {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
                     </IconButton>
